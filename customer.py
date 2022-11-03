@@ -1,7 +1,13 @@
+import uuid
+from transaction import Transaction
+from account import Account
+
 class Customer:
 
-    Id=0
-    name=0
-    ssn=0
-    accounts=0
-    transactions=0
+    accounts=[]
+    transactions=[]
+
+    def __init__(self,name,ssn):
+        self.id=uuid.uuid4().hex
+        self.name=name
+        self.ssn=ssn

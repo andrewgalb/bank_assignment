@@ -1,3 +1,9 @@
+from customer import Customer
+from transaction import Transaction
+from account import Account
+from datasource import DataSource
+
+
 """Man ska till exempel kunna ändra kundens namn samt hämta information
 om kunden (personnummer, för- och efternamn samt hämta information
 om kundens konton (kontonummer, saldo, kontotyp)).

@@ -1,8 +1,4 @@
 from bank import Bank
-from customer import Customer
-from transaction import Transaction
-from account import Account
-from datasource import DataSource
 import sys
 
 def main() -> int:
@@ -13,4 +9,5 @@ def main() -> int:
 
 
 if __name__ == '__main__':
-    sys.exit(main())  # next section explains the use of sys.exit
+    sys.exit(main()) 
+
