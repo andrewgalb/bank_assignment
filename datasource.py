@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """DataSource klassen kräver konkreta implementationer. Ett krav är att
 implementationen ska använda en textfil som datasource"""
 class DataSource:
