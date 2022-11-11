@@ -7,6 +7,11 @@ class Account:
         self.account_type=account_type
         self.balance=0
 
+    def __init__(self,account_number, account_type, balance):
+        self.account_number=account_number
+        self.account_type=account_type
+        self.balance=balance
+
     """Returnerar alla transaktioner som en kund har gjort med ett specifikt
     konto eller -1 om kontot inte existerar"""
     def get_all_transactions_by_pnr_acc_nr(self,pnr, acc_nr ):

@@ -2,6 +2,9 @@ from datasource import DataSource
 import os
 import pandas
 import csv
+from io import StringIO
+from customer import Customer
+from account import Account
 
 """DataSource klassen kräver konkreta implementationer. Ett krav är att
 implementationen ska använda en textfil som datasource"""
@@ -20,10 +23,33 @@ class DataSource_TextFile(DataSource):
     def get_all(self):
         #df = pandas.read_csv('accounts.csv',sep=':')
         #print(df)
+        customers={}
         with open('accounts.csv', newline='') as csvfile:
             reader = csv.reader(csvfile, delimiter=':', quotechar='|')
             for row in reader:
-                print(row)
+                customer=Customer(id=row[0],name=row[1],ssn=row[2])
+                accounts_array=row[3:]
+                print(accounts_array)
+                accounts_string=':'.join(accounts_array)
+                accounts=self.parse_transactions(accounts_string)
+                customer.accounts=accounts
+                customers[customer.id]=customer
+
+        return customers       
+
+
+    def parse_transactions(self,accounts_string):
+        accounts=[]
+        accounts_array=accounts_string.split("#")
+        for account in accounts_array:
+            details_reader=csv.reader(StringIO(account), delimiter=':', quotechar='|')
+            for details in details_reader:
+                recreated_account=Account(details[0],details[1],details[2])
+                accounts.append(recreated_account)
+
+        return accounts
+    
+
         
 
         

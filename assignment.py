@@ -6,8 +6,9 @@ from datasource_textfile import DataSource_TextFile
 def main():
 
     datasource=DataSource_TextFile()
-    datasource.get_all()
+   
     bank_instance=Bank("Swedish Bank")
+    bank_instance.customers= datasource.get_all()
     
     running=True
     while(running):

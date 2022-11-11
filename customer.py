@@ -12,6 +12,11 @@ class Customer:
         self.name=name
         self.ssn=ssn
 
+    def __init__(self,id, name,ssn):
+        self.id=id
+        self.name=name
+        self.ssn=ssn     
+
     def __repr__(self):
         return f'{self.id} {self.name} {self.ssn}'
 
