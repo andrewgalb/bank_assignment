@@ -27,13 +27,13 @@ class DataSource_TextFile(DataSource):
         with open('accounts.csv', newline='') as csvfile:
             reader = csv.reader(csvfile, delimiter=':', quotechar='|')
             for row in reader:
-                customer=Customer(id=row[0],name=row[1],ssn=row[2])
+                customer=Customer(id=row[0],name=row[1],pnr=row[2])
                 accounts_array=row[3:]
                 print(accounts_array)
                 accounts_string=':'.join(accounts_array)
                 accounts=self.parse_transactions(accounts_string)
                 customer.accounts=accounts
-                customers[customer.id]=customer
+                customers[customer.pnr]=customer
 
         return customers       
 

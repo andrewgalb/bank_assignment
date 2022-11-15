@@ -3,6 +3,7 @@ from customer import Customer
 from transaction import Transaction
 from account import Account
 from datasource import DataSource
+from datasource_textfile import DataSource_TextFile
 from ui import UI
 
 
@@ -16,13 +17,15 @@ om det behövs)."""
 class Bank:
 
     customers={}
+    transactions=[]
 
     def __init__(self,name):
         self.name=name
 
     """Läser in text filen och befolkar listan som ska innehålla kunderna."""
-    def _load():
-        raise NotImplementedError   
+    def _load(self):
+        datasource=DataSource_TextFile()
+        self.customers=datasource.get_all()   
     
     """Returnerar bankens alla kunder (personnummer och namn)"""
     def get_customers(self):
@@ -32,10 +35,11 @@ class Bank:
     finns någon kund med personnumret som angetts. Returnerar True om kunden skapades
     annars returneras False."""
     def add_customer(self,name, pnr):
-        try:
-            self.customers[pnr]=Customer(name,pnr)
+        #try:
+            c=Customer(id=None,name=name, pnr=pnr)
+            self.customers[pnr]=c
             return True
-        except:
+        #except:
             return False
         
 
@@ -60,8 +64,14 @@ class Bank:
     """Tar bort kund med personnumret som angetts ur banken, alla kundens eventuella konton
     #tas också bort och resultatet returneras. Listan som returneras ska innehålla information
     #om alla konton som togs bort, saldot som kunden får tillbaka."""
-    def remove_customer(pnr):
-        raise NotImplemented
+    def remove_customer(self,pnr):
+        try:
+            customer=self.customers[pnr]
+            result=customer.delete_accounts()
+            del self.customers[pnr]
+            return result
+        except:
+            return -1
 
    
 

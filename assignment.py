@@ -5,10 +5,10 @@ from datasource_textfile import DataSource_TextFile
 
 def main():
 
-    datasource=DataSource_TextFile()
+    
    
     bank_instance=Bank("Swedish Bank")
-    bank_instance.customers= datasource.get_all()
+    bank_instance._load()
     
     running=True
     while(running):
@@ -18,30 +18,39 @@ def main():
             match choice:
                     case "1":
                         #Show all customers
-                        ui_instance.print_array(bank_instance.customers)
+                        ui_instance.print_dict(bank_instance.customers)
                     case "2":
-                        #Work with a customer
-                        print("You chose 1")
+                        #Work with customer
+                        print("Customer SSN?")
+                        input_pnr=ui_instance.get_input();
+                        work_with_customer(input_pnr,ui_instance,bank_instance)
                     case "3":
                         #Create new customer
                         print("Customer name?")
                         input_name=ui_instance.get_input();
                         print("SSN?")
                         input_pnr=ui_instance.get_input();
-                        bank_instance.add_customer(input_name,input_pnr)
-                      
+                        result=bank_instance.add_customer(input_name,input_pnr)
+                        if result==True:
+                            print("Customer successfully created.")
+                        else:
+                            print("Customer could not be created.")
+                       
                     case "4":
                         #Edit customer
                         print("Customer SSN?")
                         input_pnr=ui_instance.get_input();
-                        bank_instance.change_customer_name(input_pnr)
+                        print("New name?")
+                        input_name=ui_instance.get_input();
+                        bank_instance.change_customer_name(input_name,input_pnr)
                     case "5":
                         #Delete customer
                         print("Customer SSN?")
                         input_pnr=ui_instance.get_input();
-                        bank_instance.remove_customer(input_pnr)
+                        result=bank_instance.remove_customer(input_pnr)
+                        
                     case "6":
-                        #Delete customer
+                        #Quit
                         print("Finishing...")
                         running=False
 
@@ -50,40 +59,76 @@ def main():
         
     return 0
 
-def work_with_customer(pnr,ui_instance):
+def work_with_customer(pnr,ui_instance,bank_instance):
+      running=True
+      customers=bank_instance.get_customers()
+      customer=None
+      for key in customers:
+        temp_customer=customers[key]
+        if temp_customer.pnr==pnr:
+            customer = customers[key]
       while(running):
             ui_instance.show_customer_menu()
             choice=ui_instance.get_input()
             match choice:
                     case "1":
                         #Show all accounts
-                        raise NotImplementedError
+                        ui_instance.print_array(customer.get_all_accounts())
                     case "2":
-                        #Create new account
-                        raise NotImplementedError
+                        #Work with account
+                        print("Account no to work with?")
+                        input_pnr=ui_instance.get_input();
+                        work_with_account(customer,ui_instance,input_pnr)
                     case "3":
-                        #Remove account
-                        raise NotImplementedError
+                        #Create new account
+                        result=customer.add_account()
+                        if result==-1:
+                            print("Account could not be created.")
+                        else:
+                            print(f'Account {result} created.')
                     case "4":
+                        #Remove account
+                        print("Account no to remove")
+                        input_pnr=ui_instance.get_input();
+                        result=customer.close_account(input_pnr)
+                        if result==-1:
+                            print("That account could not be found")
+                        else:
+                            print("Account removed.")
+                    case "5":
                         #Go back
                         print("Going back...")
                         running=False
 
 
-def work_with_account(pnr,ui_instance):
+def work_with_account(customer,ui_instance,account_nr):
+      account=customer.get_account(account_nr)
       while(running):
             ui_instance.show_account_menu()
             choice=ui_instance.get_input()
             match choice:
                     case "1":
                         #Show balance
-                        raise NotImplementedError
+                        balance=account.get_balance()
+                        print(balance)
                     case "2":
                         #Deposit money
-                        raise NotImplementedError
+                        print("How much to desposit?")
+                        input_acc_nr=ui_instance.get_input();
+                        result=account.deposit(input_acc_nr)
+                        if result==True:
+                            print("Money successfully deposited")
+                        else:
+                            print("Error: money could not be deposited")
                     case "3":
                         #Withdraw money
-                        raise NotImplementedError
+                        print("How much to withdraw?")
+                        input_pnr=ui_instance.get_input();
+                        result=account.withdraw(input_pnr)
+                        if result==True:
+                            print("Money successfully withdrawn")
+                        else:
+                            print("Error: money could not be withdrawn")
                     case "4":
                         #Go back
                         print("Going back...")

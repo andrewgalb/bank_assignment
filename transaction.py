@@ -13,3 +13,6 @@ class Transaction:
         self.accountId=accountId
         self.amount=amount
         self.date=x = datetime.datetime.now()
+
+    def __repr__(self):
+        return f'Id:{self.id} CustomerId:{self.customerId} AccountId{self.accountId} Amount:{self.amount} Date:{self.date}'

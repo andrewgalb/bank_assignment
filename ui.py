@@ -18,8 +18,9 @@ class UI:
         print("Please choose an option:")
         print("1:Show accounts")
         print("2:Work with an account")
-        print("3:Remove an account")
-        print("4:Go back")
+        print("3:Add an account")
+        print("4:Remove an account")
+        print("5:Go back")
 
     def show_account_menu(self):
         print("***********\n")
@@ -37,3 +38,7 @@ class UI:
     def print_array(self,array_to_print):
         for val in array_to_print:
             print(val.__repr__())
+
+    def print_dict(self,dict_to_print):
+        for key in dict_to_print:
+            print(dict_to_print[key])
