@@ -35,11 +35,11 @@ class Bank:
     finns någon kund med personnumret som angetts. Returnerar True om kunden skapades
     annars returneras False."""
     def add_customer(self,name, pnr):
-        #try:
+        try:
             c=Customer(id=None,name=name, pnr=pnr)
             self.customers[pnr]=c
             return True
-        #except:
+        except:
             return False
         
 

@@ -103,6 +103,7 @@ def work_with_customer(pnr,ui_instance,bank_instance):
 
 def work_with_account(customer,ui_instance,account_nr):
       account=customer.get_account(account_nr)
+      running=True
       while(running):
             ui_instance.show_account_menu()
             choice=ui_instance.get_input()
@@ -124,7 +125,7 @@ def work_with_account(customer,ui_instance,account_nr):
                         #Withdraw money
                         print("How much to withdraw?")
                         input_pnr=ui_instance.get_input();
-                        result=account.withdraw(input_pnr)
+                        result=account.deposit(-float(input_pnr))
                         if result==True:
                             print("Money successfully withdrawn")
                         else:

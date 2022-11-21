@@ -13,7 +13,7 @@ class Account:
     def __init__(self,account_number, account_type, balance):
         self.account_number=account_number
         self.account_type=account_type
-        self.balance=balance
+        self.balance=float(balance)
 
     """Returnerar alla transaktioner som en kund har gjort med ett specifikt
     konto eller -1 om kontot inte existerar"""
@@ -21,7 +21,7 @@ class Account:
         raise NotImplementedError
 
     def deposit(self,amount):
-        self.balance+=amount
+        self.balance+=float(amount)
         return True
     
     def get_balance(self):

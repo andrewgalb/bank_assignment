@@ -33,7 +33,8 @@ class Customer:
     """Returnerar Textuell presentation av kontot med kontonummer som tillhör
     #kunden (kontonummer, saldo, kontotyp)."""
     def get_account(self, account_id):
-        return (x for x in self.accounts if x.account_number==account_id)
+        acc= next((x for x in self.accounts if x.account_number==account_id),None)
+        return acc
 
     """Returnerar Textuell presentation av kontot med kontonummer som tillhör
     #kunden (kontonummer, saldo, kontotyp)."""
@@ -66,7 +67,7 @@ class Customer:
 
     """Avslutar ett konto. Textuell presentation av kontots saldo ska genereras och
     #returneras."""
-    def close_account(self,pnr, account_id):
+    def close_account(self, account_id):
         account=(x for x in self.accounts if x.account_number==account_id)
         text_rep=account.__repr__()
         accounts=[x for x in accounts if x.account_number != account_id]
