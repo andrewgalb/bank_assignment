@@ -9,6 +9,7 @@ def main():
    
     bank_instance=Bank("Swedish Bank")
     bank_instance._load()
+    bank_instance._save()
     
     running=True
     while(running):
@@ -115,8 +116,8 @@ def work_with_account(customer,ui_instance,account_nr):
                     case "2":
                         #Deposit money
                         print("How much to desposit?")
-                        input_acc_nr=ui_instance.get_input();
-                        result=account.deposit(input_acc_nr)
+                        input_sum=ui_instance.get_input();
+                        result=customer.deposit(account_nr,input_sum)
                         if result==True:
                             print("Money successfully deposited")
                         else:
@@ -124,8 +125,8 @@ def work_with_account(customer,ui_instance,account_nr):
                     case "3":
                         #Withdraw money
                         print("How much to withdraw?")
-                        input_pnr=ui_instance.get_input();
-                        result=account.deposit(-float(input_pnr))
+                        input_sum=ui_instance.get_input()
+                        result=customer.withdraw(input_sum)
                         if result==True:
                             print("Money successfully withdrawn")
                         else:

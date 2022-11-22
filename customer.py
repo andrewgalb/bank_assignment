@@ -19,7 +19,7 @@ class Customer:
         return f'{self.id} {self.name} {self.pnr}'
 
     def __repr__(self):
-        return f'{self.id} {self.name} {self.pnr}'
+        return f'{self.id}:{self.name}:{self.pnr}'
 
     """Skapar ett konto till kunden med personnumret som angetts, returnerar kontonumret som
     det skapade kontot fick alternativt returneras –1 om inget konto skapades."""
@@ -34,15 +34,20 @@ class Customer:
     #kunden (kontonummer, saldo, kontotyp)."""
     def get_account(self, account_id):
         acc= next((x for x in self.accounts if x.account_number==account_id),None)
-        return acc
+        return acc.__str__
 
     """Returnerar Textuell presentation av kontot med kontonummer som tillhör
     #kunden (kontonummer, saldo, kontotyp)."""
     def get_all_accounts(self):
-        return self.accounts
+        combined_string=""
+        for acc in self.accounts:
+            combined_string+=acc.__str__()
+            combined_string+='#'
+        combined_string=combined_string[:-1]
+        return combined_string
 
     """Gör en insättning på kontot, returnerar True om det gick bra annars False."""
-    def deposit(self,pnr, account_id, amount):
+    def deposit(self,account_id, amount):
         try:
             account=(x for x in self.accounts if x.account_number==account_id)
             result=account.deposit(amount)
@@ -51,7 +56,7 @@ class Customer:
             return False
 
     """Gör ett uttag på kontot, returnerar True om det gick bra annars False."""
-    def withdraw(self,pnr, account_id, amount):
+    def withdraw(self, account_id, amount):
           try:
             account=(x for x in self.accounts if x.account_number==account_id)
             result=account.deposit(-amount)

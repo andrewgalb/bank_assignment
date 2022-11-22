@@ -6,6 +6,7 @@ from io import StringIO
 from customer import Customer
 from account import Account
 
+
 """DataSource klassen kräver konkreta implementationer. Ett krav är att
 implementationen ska använda en textfil som datasource"""
 class DataSource_TextFile(DataSource):
@@ -35,7 +36,23 @@ class DataSource_TextFile(DataSource):
                 customer.accounts=accounts
                 customers[customer.pnr]=customer
 
-        return customers       
+        return customers    
+
+    """Skriver alla kunder och sina detaljer till fil."""
+    def serialize(self,bank):
+        customers={}
+        with open('accountsout.csv','w') as csvfile:
+            writer = csv.writer(csvfile, delimiter=',',quoting=csv.QUOTE_NONE,escapechar=None)
+            writer.writerows(customers)
+            customers=bank.get_customers()
+            for cust in customers:
+                s=customers[cust].__repr__()
+                acc_string=customers[cust].get_all_accounts()
+                combined=s+":"+acc_string
+                
+                writer.writerow([combined])
+
+             
 
 
     def parse_transactions(self,accounts_string):

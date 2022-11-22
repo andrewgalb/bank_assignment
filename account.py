@@ -3,15 +3,11 @@ import uuid
 
 class Account:
 
-   
-
-    def __init__(self,account_type):
-        self.account_number=uuid.uuid4().hex[:8]   #(det kan inte finnas flera konton med samma kontonummer)
-        self.account_type=account_type
-        self.balance=0
-
     def __init__(self,account_number, account_type, balance):
-        self.account_number=account_number
+        if account_number==None:
+              self.id=uuid.uuid4().hex[:8]
+        else:
+            self.account_number=account_number  
         self.account_type=account_type
         self.balance=float(balance)
 
@@ -28,4 +24,4 @@ class Account:
         return self.balance
 
     def __repr__(self):
-        return f'{self.account_number} {self.account_type} {self.balance}'
+        return f'{self.account_number}:{self.account_type}:{self.balance}'

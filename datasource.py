@@ -1,3 +1,5 @@
+
+
 """DataSource klassen kräver konkreta implementationer. Ett krav är att
 implementationen ska använda en textfil som datasource"""
 class DataSource:
@@ -10,6 +12,10 @@ class DataSource:
 
     """Returnerar alla kunder i banken."""
     def get_all(self):
+        raise NotImplementedError
+
+    """Serializer alla kunder i banken."""
+    def serialize(self,Bank):
         raise NotImplementedError
 
         

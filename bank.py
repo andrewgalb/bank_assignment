@@ -26,6 +26,11 @@ class Bank:
     def _load(self):
         datasource=DataSource_TextFile()
         self.customers=datasource.get_all()   
+
+    """Läser in text filen och befolkar listan som ska innehålla kunderna."""
+    def _save(self):
+        datasource=DataSource_TextFile()
+        datasource.serialize(self)
     
     """Returnerar bankens alla kunder (personnummer och namn)"""
     def get_customers(self):
