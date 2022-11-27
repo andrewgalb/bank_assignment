@@ -1,0 +1,5 @@
+digraph "classes" {
+rankdir=BT
+charset="utf-8"
+"bank.Bank" [color="black", fontcolor="black", label="{Bank|customers : dict\lcustomers : dict\lname\ltransactions : list\l|add_customer(name, pnr)\lchange_customer_name(name, pnr)\lget_customer(pnr)\lget_customers()\lremove_customer(pnr)\l}", shape="record", style="solid"];
+}

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classdatasource_1_1_data_source" xml:lang="en-US">
+<title>datasource.DataSource Class Reference</title>
+<indexterm><primary>datasource.DataSource</primary></indexterm>
+<para>Inheritance diagram for datasource.DataSource:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classdatasource_1_1_data_source.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>def <link linkend="_classdatasource_1_1_data_source_1ade008f0836f079e3a2f9cf48d0186fee">datasource_conn</link> (self)</para>
+</listitem>
+            <listitem><para>def <link linkend="_classdatasource_1_1_data_source_1aeb3006728d94fc06459a1b3ddaa989ec">get_all</link> (self)</para>
+</listitem>
+            <listitem><para>def <link linkend="_classdatasource_1_1_data_source_1aa4ba81a717c389f2afb339d61586be04">serialize</link> (self, Bank)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><literallayout><computeroutput>Denna metod implementerar kopplingen till en generisk datasource. Returnerar
+en &lt;class ‘tuple’&gt; med en &lt;class ‘bool’&gt; och en &lt;class ‘str’&gt; t.ex., (True,
+&quot;“Connection successful” [, datasource namn])</computeroutput></literallayout> </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classdatasource_1_1_data_source_1ade008f0836f079e3a2f9cf48d0186fee"/><section>
+    <title>datasource_conn()</title>
+<indexterm><primary>datasource_conn</primary><secondary>datasource.DataSource</secondary></indexterm>
+<indexterm><primary>datasource.DataSource</primary><secondary>datasource_conn</secondary></indexterm>
+<para><computeroutput>def datasource.DataSource.datasource_conn ( self)</computeroutput></para><para>
+Reimplemented in <link linkend="_classdatasource__textfile_1_1_data_source___text_file_1a6059bd51d4c5562df1f6601061f0f354">datasource_textfile.DataSource_TextFile</link>.</para>
+</section>
+<anchor xml:id="_classdatasource_1_1_data_source_1aeb3006728d94fc06459a1b3ddaa989ec"/><section>
+    <title>get_all()</title>
+<indexterm><primary>get_all</primary><secondary>datasource.DataSource</secondary></indexterm>
+<indexterm><primary>datasource.DataSource</primary><secondary>get_all</secondary></indexterm>
+<para><computeroutput>def datasource.DataSource.get_all ( self)</computeroutput></para><para>
+Reimplemented in <link linkend="_classdatasource__textfile_1_1_data_source___text_file_1a6652a984b7d50f7d0e35888fc25614ed">datasource_textfile.DataSource_TextFile</link>.</para>
+</section>
+<anchor xml:id="_classdatasource_1_1_data_source_1aa4ba81a717c389f2afb339d61586be04"/><section>
+    <title>serialize()</title>
+<indexterm><primary>serialize</primary><secondary>datasource.DataSource</secondary></indexterm>
+<indexterm><primary>datasource.DataSource</primary><secondary>serialize</secondary></indexterm>
+<para><computeroutput>def datasource.DataSource.serialize ( self,  Bank)</computeroutput></para><para>
+Reimplemented in <link linkend="_classdatasource__textfile_1_1_data_source___text_file_1a173affd2a2265865930f7d98b3952e9e">datasource_textfile.DataSource_TextFile</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+<link linkend="_datasource_8py">datasource.py</link></section>
+</section>

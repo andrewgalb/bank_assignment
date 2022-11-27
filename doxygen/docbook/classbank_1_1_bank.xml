@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classbank_1_1_bank" xml:lang="en-US">
+<title>bank.Bank Class Reference</title>
+<indexterm><primary>bank.Bank</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>def <link linkend="_classbank_1_1_bank_1ac0c2c6f4a36d20c0eb11467df0c46c0b">__init__</link> (self, <link linkend="_classbank_1_1_bank_1ad18b2bd38e5f1ab8ac9e2cf01bfed304">name</link>)</para>
+</listitem>
+            <listitem><para>def <link linkend="_classbank_1_1_bank_1a078110008fdd9690bfa663a7ff3d77e0">get_customers</link> (self)</para>
+</listitem>
+            <listitem><para>def <link linkend="_classbank_1_1_bank_1a51b86566cfba53090ae8fa4d80bc7c0c">add_customer</link> (self, <link linkend="_classbank_1_1_bank_1ad18b2bd38e5f1ab8ac9e2cf01bfed304">name</link>, pnr)</para>
+</listitem>
+            <listitem><para>def <link linkend="_classbank_1_1_bank_1a94d73589be983130bcc9b5284462fd37">get_customer</link> (self, pnr)</para>
+</listitem>
+            <listitem><para>def <link linkend="_classbank_1_1_bank_1a628a5d49abc17ca2ef7d15de0484ba0f">change_customer_name</link> (self, <link linkend="_classbank_1_1_bank_1ad18b2bd38e5f1ab8ac9e2cf01bfed304">name</link>, pnr)</para>
+</listitem>
+            <listitem><para>def <link linkend="_classbank_1_1_bank_1ab8873b35d24fd72803c84dbd6fa1b9e9">remove_customer</link> (self, pnr)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classbank_1_1_bank_1ad18b2bd38e5f1ab8ac9e2cf01bfed304">name</link></para>
+</listitem>
+            <listitem><para><link linkend="_classbank_1_1_bank_1a381b09d3f1df25515fdfeb4c1da9a217">customers</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>dictionary <link linkend="_classbank_1_1_bank_1adf93062cd219204162a95e5a1febc4cf">customers</link> = {}</para>
+</listitem>
+            <listitem><para>list <link linkend="_classbank_1_1_bank_1a38f502e75ab9ec22b4b93c775bff770e">transactions</link> = []</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classbank_1_1_bank_1ac0c2c6f4a36d20c0eb11467df0c46c0b"/><section>
+    <title>__init__()</title>
+<indexterm><primary>__init__</primary><secondary>bank.Bank</secondary></indexterm>
+<indexterm><primary>bank.Bank</primary><secondary>__init__</secondary></indexterm>
+<para><computeroutput>def bank.Bank.__init__ ( self,  name)</computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classbank_1_1_bank_1a51b86566cfba53090ae8fa4d80bc7c0c"/><section>
+    <title>add_customer()</title>
+<indexterm><primary>add_customer</primary><secondary>bank.Bank</secondary></indexterm>
+<indexterm><primary>bank.Bank</primary><secondary>add_customer</secondary></indexterm>
+<para><computeroutput>def bank.Bank.add_customer ( self,  name,  pnr)</computeroutput></para></section>
+<anchor xml:id="_classbank_1_1_bank_1a628a5d49abc17ca2ef7d15de0484ba0f"/><section>
+    <title>change_customer_name()</title>
+<indexterm><primary>change_customer_name</primary><secondary>bank.Bank</secondary></indexterm>
+<indexterm><primary>bank.Bank</primary><secondary>change_customer_name</secondary></indexterm>
+<para><computeroutput>def bank.Bank.change_customer_name ( self,  name,  pnr)</computeroutput></para></section>
+<anchor xml:id="_classbank_1_1_bank_1a94d73589be983130bcc9b5284462fd37"/><section>
+    <title>get_customer()</title>
+<indexterm><primary>get_customer</primary><secondary>bank.Bank</secondary></indexterm>
+<indexterm><primary>bank.Bank</primary><secondary>get_customer</secondary></indexterm>
+<para><computeroutput>def bank.Bank.get_customer ( self,  pnr)</computeroutput></para></section>
+<anchor xml:id="_classbank_1_1_bank_1a078110008fdd9690bfa663a7ff3d77e0"/><section>
+    <title>get_customers()</title>
+<indexterm><primary>get_customers</primary><secondary>bank.Bank</secondary></indexterm>
+<indexterm><primary>bank.Bank</primary><secondary>get_customers</secondary></indexterm>
+<para><computeroutput>def bank.Bank.get_customers ( self)</computeroutput></para></section>
+<anchor xml:id="_classbank_1_1_bank_1ab8873b35d24fd72803c84dbd6fa1b9e9"/><section>
+    <title>remove_customer()</title>
+<indexterm><primary>remove_customer</primary><secondary>bank.Bank</secondary></indexterm>
+<indexterm><primary>bank.Bank</primary><secondary>remove_customer</secondary></indexterm>
+<para><computeroutput>def bank.Bank.remove_customer ( self,  pnr)</computeroutput></para></section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classbank_1_1_bank_1adf93062cd219204162a95e5a1febc4cf"/><section>
+    <title>customers<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>customers</primary><secondary>bank.Bank</secondary></indexterm>
+<indexterm><primary>bank.Bank</primary><secondary>customers</secondary></indexterm>
+<para><computeroutput>dictionary bank.Bank.customers = {}<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classbank_1_1_bank_1a381b09d3f1df25515fdfeb4c1da9a217"/><section>
+    <title>customers<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>customers</primary><secondary>bank.Bank</secondary></indexterm>
+<indexterm><primary>bank.Bank</primary><secondary>customers</secondary></indexterm>
+<para><computeroutput>bank.Bank.customers</computeroutput></para></section>
+<anchor xml:id="_classbank_1_1_bank_1ad18b2bd38e5f1ab8ac9e2cf01bfed304"/><section>
+    <title>name</title>
+<indexterm><primary>name</primary><secondary>bank.Bank</secondary></indexterm>
+<indexterm><primary>bank.Bank</primary><secondary>name</secondary></indexterm>
+<para><computeroutput>bank.Bank.name</computeroutput></para></section>
+<anchor xml:id="_classbank_1_1_bank_1a38f502e75ab9ec22b4b93c775bff770e"/><section>
+    <title>transactions</title>
+<indexterm><primary>transactions</primary><secondary>bank.Bank</secondary></indexterm>
+<indexterm><primary>bank.Bank</primary><secondary>transactions</secondary></indexterm>
+<para><computeroutput>list bank.Bank.transactions = []<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<para>
+The documentation for this class was generated from the following file:</para>
+<link linkend="_bank_8py">bank.py</link></section>
+</section>

@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classtransaction_1_1_transaction" xml:lang="en-US">
+<title>transaction.Transaction Class Reference</title>
+<indexterm><primary>transaction.Transaction</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>def <link linkend="_classtransaction_1_1_transaction_1ad92adcf2746599b8cb0621b77927f389">__init__</link> (self, <link linkend="_classtransaction_1_1_transaction_1a6f133157a2c2fe2e216a3d96692148b1">customerId</link>, <link linkend="_classtransaction_1_1_transaction_1ad77afeb8e8f4fdb6e5fd30af444d4f76">accountId</link>, <link linkend="_classtransaction_1_1_transaction_1a49d17ae4e3c2f49d18f2d635c9370f81">amount</link>)</para>
+</listitem>
+            <listitem><para>def <link linkend="_classtransaction_1_1_transaction_1a6f63f7a434ad17994d03d81f9f43781f">__repr__</link> (self)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classtransaction_1_1_transaction_1a639c843dd226605be337eddc76bd4275">id</link></para>
+</listitem>
+            <listitem><para><link linkend="_classtransaction_1_1_transaction_1a6f133157a2c2fe2e216a3d96692148b1">customerId</link></para>
+</listitem>
+            <listitem><para><link linkend="_classtransaction_1_1_transaction_1ad77afeb8e8f4fdb6e5fd30af444d4f76">accountId</link></para>
+</listitem>
+            <listitem><para><link linkend="_classtransaction_1_1_transaction_1a49d17ae4e3c2f49d18f2d635c9370f81">amount</link></para>
+</listitem>
+            <listitem><para><link linkend="_classtransaction_1_1_transaction_1af49a7309244c80b1d6e130f73eb1e595">date</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classtransaction_1_1_transaction_1ad92adcf2746599b8cb0621b77927f389"/><section>
+    <title>__init__()</title>
+<indexterm><primary>__init__</primary><secondary>transaction.Transaction</secondary></indexterm>
+<indexterm><primary>transaction.Transaction</primary><secondary>__init__</secondary></indexterm>
+<para><computeroutput>def transaction.Transaction.__init__ ( self,  customerId,  accountId,  amount)</computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classtransaction_1_1_transaction_1a6f63f7a434ad17994d03d81f9f43781f"/><section>
+    <title>__repr__()</title>
+<indexterm><primary>__repr__</primary><secondary>transaction.Transaction</secondary></indexterm>
+<indexterm><primary>transaction.Transaction</primary><secondary>__repr__</secondary></indexterm>
+<para><computeroutput>def transaction.Transaction.__repr__ ( self)</computeroutput></para></section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classtransaction_1_1_transaction_1ad77afeb8e8f4fdb6e5fd30af444d4f76"/><section>
+    <title>accountId</title>
+<indexterm><primary>accountId</primary><secondary>transaction.Transaction</secondary></indexterm>
+<indexterm><primary>transaction.Transaction</primary><secondary>accountId</secondary></indexterm>
+<para><computeroutput>transaction.Transaction.accountId</computeroutput></para></section>
+<anchor xml:id="_classtransaction_1_1_transaction_1a49d17ae4e3c2f49d18f2d635c9370f81"/><section>
+    <title>amount</title>
+<indexterm><primary>amount</primary><secondary>transaction.Transaction</secondary></indexterm>
+<indexterm><primary>transaction.Transaction</primary><secondary>amount</secondary></indexterm>
+<para><computeroutput>transaction.Transaction.amount</computeroutput></para></section>
+<anchor xml:id="_classtransaction_1_1_transaction_1a6f133157a2c2fe2e216a3d96692148b1"/><section>
+    <title>customerId</title>
+<indexterm><primary>customerId</primary><secondary>transaction.Transaction</secondary></indexterm>
+<indexterm><primary>transaction.Transaction</primary><secondary>customerId</secondary></indexterm>
+<para><computeroutput>transaction.Transaction.customerId</computeroutput></para></section>
+<anchor xml:id="_classtransaction_1_1_transaction_1af49a7309244c80b1d6e130f73eb1e595"/><section>
+    <title>date</title>
+<indexterm><primary>date</primary><secondary>transaction.Transaction</secondary></indexterm>
+<indexterm><primary>transaction.Transaction</primary><secondary>date</secondary></indexterm>
+<para><computeroutput>transaction.Transaction.date</computeroutput></para></section>
+<anchor xml:id="_classtransaction_1_1_transaction_1a639c843dd226605be337eddc76bd4275"/><section>
+    <title>id</title>
+<indexterm><primary>id</primary><secondary>transaction.Transaction</secondary></indexterm>
+<indexterm><primary>transaction.Transaction</primary><secondary>id</secondary></indexterm>
+<para><computeroutput>transaction.Transaction.id</computeroutput></para></section>
+<para>
+The documentation for this class was generated from the following file:</para>
+<link linkend="_transaction_8py">transaction.py</link></section>
+</section>

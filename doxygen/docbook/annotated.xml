@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_annotated" xml:lang="en-US">
+<title>Class List</title>
+Here are the classes, structs, unions and interfaces with brief descriptions:<link linkend="_classaccount_1_1_account">account.Account</link><link linkend="_classbank_1_1_bank">bank.Bank</link><link linkend="_classcustomer_1_1_customer">customer.Customer</link><link linkend="_classdatasource_1_1_data_source">datasource.DataSource</link><link linkend="_classdatasource__textfile_1_1_data_source___text_file">datasource_textfile.DataSource_TextFile</link><link linkend="_classtransaction_1_1_transaction">transaction.Transaction</link><link linkend="_classui_1_1_u_i">ui.UI</link></section>
