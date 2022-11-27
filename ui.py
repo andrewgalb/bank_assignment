@@ -1,9 +1,17 @@
 
 class UI:
 
-    def Show_Start_Menu(self):
-        print("***********\n")
+
+    def Show_Welcome(self):
+        print("\n--------------------")
         print("Welcome to the Bank.")
+        print("--------------------\n")
+
+
+    def Show_Start_Menu(self):
+        print("\n***********")
+        print("Main Menu")
+        print("***********")
         print("Please choose an option:")
         print("1:Show customers")
         print("2:Work with a customer")
@@ -13,8 +21,9 @@ class UI:
         print("6:Exit")
 
     def show_customer_menu(self):
-        print("***********\n")
+        print("\n***********")
         print("Customer Menu.")
+        print("***********")
         print("Please choose an option:")
         print("1:Show accounts")
         print("2:Work with an account")
@@ -23,8 +32,9 @@ class UI:
         print("5:Go back")
 
     def show_account_menu(self):
-        print("***********\n")
+        print("\n***********")
         print("Account Menu.")
+        print("***********")
         print("Please choose an option:")
         print("1:Show balance")
         print("2:Deposit money")

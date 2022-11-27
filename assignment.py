@@ -9,11 +9,11 @@ def main():
    
     bank_instance=Bank("Swedish Bank")
     bank_instance._load()
-    bank_instance._save()
-    
+    ui_instance=UI()
+    ui_instance.Show_Welcome()
     running=True
     while(running):
-            ui_instance=UI()
+           
             ui_instance.Show_Start_Menu()
             choice=ui_instance.get_input()
             match choice:
@@ -24,7 +24,11 @@ def main():
                         #Work with customer
                         print("Customer SSN?")
                         input_pnr=ui_instance.get_input();
-                        work_with_customer(input_pnr,ui_instance,bank_instance)
+                        result=bank_instance.check_if_customer_exists(input_pnr)
+                        if result==True:
+                            work_with_customer(input_pnr,ui_instance,bank_instance)
+                        else:
+                            print("That customer does not exist.")
                     case "3":
                         #Create new customer
                         print("Customer name?")
@@ -43,16 +47,27 @@ def main():
                         input_pnr=ui_instance.get_input();
                         print("New name?")
                         input_name=ui_instance.get_input();
-                        bank_instance.change_customer_name(input_name,input_pnr)
+                        result=bank_instance.change_customer_name(input_name,input_pnr)
+                        if result==True:
+                            print("Customer name successfully changed.")
+                        else:
+                            print("That customer could not be found.")
                     case "5":
                         #Delete customer
                         print("Customer SSN?")
                         input_pnr=ui_instance.get_input();
                         result=bank_instance.remove_customer(input_pnr)
-                        
+                        if result==-1:
+                            print("There was an error removing that customer")
+                        else:
+                            print("Successfully removed customer\n")
+                            print("Accounts removed:\n")
+                            result=result.replace("#"," ")
+                            print(result)
                     case "6":
                         #Quit
                         print("Finishing...")
+                        bank_instance._save()
                         running=False
 
                 
@@ -68,13 +83,20 @@ def work_with_customer(pnr,ui_instance,bank_instance):
         temp_customer=customers[key]
         if temp_customer.pnr==pnr:
             customer = customers[key]
+      
       while(running):
+            print("\nWorking with "+customer.name)
             ui_instance.show_customer_menu()
             choice=ui_instance.get_input()
             match choice:
                     case "1":
                         #Show all accounts
-                        ui_instance.print_array(customer.get_all_accounts())
+                        result=customer.get_all_accounts()
+                        result=result.replace("#","\n")
+                        if result=="":
+                            print("No accounts found")
+                        else:
+                            print(result)
                     case "2":
                         #Work with account
                         print("Account no to work with?")
@@ -92,6 +114,7 @@ def work_with_customer(pnr,ui_instance,bank_instance):
                         print("Account no to remove")
                         input_pnr=ui_instance.get_input();
                         result=customer.close_account(input_pnr)
+                        print(result)
                         if result==-1:
                             print("That account could not be found")
                         else:
@@ -106,16 +129,18 @@ def work_with_account(customer,ui_instance,account_nr):
       account=customer.get_account(account_nr)
       running=True
       while(running):
+            print("\nWorking with "+account.account_number)
             ui_instance.show_account_menu()
             choice=ui_instance.get_input()
             match choice:
+
                     case "1":
                         #Show balance
                         balance=account.get_balance()
                         print(balance)
                     case "2":
                         #Deposit money
-                        print("How much to desposit?")
+                        print("How much to deposit?")
                         input_sum=ui_instance.get_input();
                         result=customer.deposit(account_nr,input_sum)
                         if result==True:
@@ -126,7 +151,7 @@ def work_with_account(customer,ui_instance,account_nr):
                         #Withdraw money
                         print("How much to withdraw?")
                         input_sum=ui_instance.get_input()
-                        result=customer.withdraw(input_sum)
+                        result=customer.withdraw(account_nr,input_sum)
                         if result==True:
                             print("Money successfully withdrawn")
                         else:

@@ -54,16 +54,29 @@ class Bank:
     def get_customer(self,pnr):
         return self.customers[pnr]
 
+    def check_if_customer_exists(self,pnr):
+        customers=self.get_customers()
+        customer=None
+        for key in customers:
+            temp_customer=customers[key]
+            if temp_customer.pnr==pnr:
+                 return True
+        return False
+
     """Byter namn på kund, returnerar True om namnet ändrades annars returnerar det False
     #(om kunden inte fanns)."""
     def change_customer_name(self,name,pnr):
         try:
             customer=self.customers[pnr]
             customer.name=name
-            self.customers[pnr].update(customer)
             return True
         except:
             return False
+
+    """Returnerar alla transaktioner som en kund har gjort med ett specifikt
+    konto eller -1 om kontot inte existerar"""
+    def get_all_transactions_by_pnr_acc_nr(self,pnr, acc_nr ):
+        raise NotImplementedError
 
 
     """Tar bort kund med personnumret som angetts ur banken, alla kundens eventuella konton

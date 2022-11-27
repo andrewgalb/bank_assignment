@@ -25,7 +25,8 @@ class Customer:
     det skapade kontot fick alternativt returneras –1 om inget konto skapades."""
     def add_account(self):
         try:
-            account=Account(account_type="debit account")
+            account=Account(account_number=None,account_type="debit account",balance=0)
+            self.accounts.append(account)
             return account.account_number
         except:
             return -1
@@ -34,7 +35,7 @@ class Customer:
     #kunden (kontonummer, saldo, kontotyp)."""
     def get_account(self, account_id):
         acc= next((x for x in self.accounts if x.account_number==account_id),None)
-        return acc.__str__
+        return acc
 
     """Returnerar Textuell presentation av kontot med kontonummer som tillhör
     #kunden (kontonummer, saldo, kontotyp)."""
@@ -49,8 +50,10 @@ class Customer:
     """Gör en insättning på kontot, returnerar True om det gick bra annars False."""
     def deposit(self,account_id, amount):
         try:
-            account=(x for x in self.accounts if x.account_number==account_id)
-            result=account.deposit(amount)
+            account=[x for x in self.accounts if x.account_number==account_id]
+            if len(account)==0:
+                return False
+            result=account[0].deposit(amount)
             return result
         except:
             return False
@@ -58,22 +61,29 @@ class Customer:
     """Gör ett uttag på kontot, returnerar True om det gick bra annars False."""
     def withdraw(self, account_id, amount):
           try:
-            account=(x for x in self.accounts if x.account_number==account_id)
-            result=account.deposit(-amount)
+            account=[x for x in self.accounts if x.account_number==account_id]
+            if len(account)==0:
+                return False
+            result=account[0].deposit(-(float)(amount))
             return result
           except:
             return False
 
     def delete_accounts(self):
-        concat_string=None
+        concat_string=""
         for a in self.accounts:
-            concat_string+=self.close_account(a.account_number)
+            concat_string+=(self.close_account(a.account_number)+"\n")
         return concat_string
 
     """Avslutar ett konto. Textuell presentation av kontots saldo ska genereras och
     #returneras."""
     def close_account(self, account_id):
-        account=(x for x in self.accounts if x.account_number==account_id)
-        text_rep=account.__repr__()
-        accounts=[x for x in accounts if x.account_number != account_id]
-        return text_rep
+        try:
+            account=[x for x in self.accounts if x.account_number==account_id]
+            if len(account)==0:
+                return -1
+            text_rep=account[0].__repr__()
+            self.accounts=[x for x in self.accounts if x.account_number != account_id]
+            return text_rep
+        except:
+            return -1

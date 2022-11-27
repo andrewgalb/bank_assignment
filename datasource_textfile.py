@@ -22,15 +22,12 @@ class DataSource_TextFile(DataSource):
  
     """Returnerar alla kunder i banken."""
     def get_all(self):
-        #df = pandas.read_csv('accounts.csv',sep=':')
-        #print(df)
         customers={}
-        with open('accounts.csv', newline='') as csvfile:
+        with open(self.path, newline='') as csvfile:
             reader = csv.reader(csvfile, delimiter=':', quotechar='|')
             for row in reader:
                 customer=Customer(id=row[0],name=row[1],pnr=row[2])
                 accounts_array=row[3:]
-                print(accounts_array)
                 accounts_string=':'.join(accounts_array)
                 accounts=self.parse_transactions(accounts_string)
                 customer.accounts=accounts
@@ -41,15 +38,14 @@ class DataSource_TextFile(DataSource):
     """Skriver alla kunder och sina detaljer till fil."""
     def serialize(self,bank):
         customers={}
-        with open('accountsout.csv','w') as csvfile:
-            writer = csv.writer(csvfile, delimiter=',',quoting=csv.QUOTE_NONE,escapechar=None)
-            writer.writerows(customers)
+        with open(self.path,'w',newline='', encoding='utf-8') as csvfile:
+            writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_NONE,escapechar=None)
+            #writer.writerows(customers)
             customers=bank.get_customers()
             for cust in customers:
                 s=customers[cust].__repr__()
                 acc_string=customers[cust].get_all_accounts()
                 combined=s+":"+acc_string
-                
                 writer.writerow([combined])
 
              
