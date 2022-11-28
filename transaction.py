@@ -15,4 +15,4 @@ class Transaction:
         self.date=x = datetime.datetime.now()
 
     def __repr__(self):
-        return f'Id:{self.id} CustomerId:{self.customerId} AccountId{self.accountId} Amount:{self.amount} Date:{self.date}'
+        return f'Id:{self.id} Customer Id:{self.customerId} Account Id:{self.accountId} Amount:{self.amount} Date:{self.date}'
