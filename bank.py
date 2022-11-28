@@ -25,12 +25,14 @@ class Bank:
     """Läser in text filen och befolkar listan som ska innehålla kunderna."""
     def _load(self):
         datasource=DataSource_TextFile()
-        self.customers=datasource.get_all()   
+        self.customers=datasource.get_all() 
+        self.transactions=datasource.get_all_transactions()  
 
     """Läser in text filen och befolkar listan som ska innehålla kunderna."""
     def _save(self):
         datasource=DataSource_TextFile()
         datasource.serialize(self)
+        datasource.serialize_all_transactions(self)
     
     """Returnerar bankens alla kunder (personnummer och namn)"""
     def get_customers(self):
@@ -73,10 +75,28 @@ class Bank:
         except:
             return False
 
+
+    def create_transaction(self,customer_id,account_nr,amount):
+        transaction=Transaction(customer_id,account_nr,amount)
+        self.transactions.append(transaction)
+
+
+    def get_all_transactions(self):
+            concat_string=""
+            for x in self.transactions:
+                concat_string+=x.__str__()+('\n')
+            return concat_string
+
     """Returnerar alla transaktioner som en kund har gjort med ett specifikt
     konto eller -1 om kontot inte existerar"""
-    def get_all_transactions_by_pnr_acc_nr(self,pnr, acc_nr ):
-        raise NotImplementedError
+    def get_all_transactions_by_acc_nr(self, acc_nr ):
+            account_transactions=[x for x in self.transactions if x.account_number==acc_nr]
+            if len(account_transactions)==0:
+                return -1
+            concat_string=""
+            for x in account_transactions:
+                concat_string+=x.__str__()+('\n')
+            return concat_string
 
 
     """Tar bort kund med personnumret som angetts ur banken, alla kundens eventuella konton

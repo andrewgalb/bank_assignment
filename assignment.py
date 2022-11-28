@@ -65,6 +65,23 @@ def main():
                             result=result.replace("#"," ")
                             print(result)
                     case "6":
+                        #View all transations
+                        result=bank_instance.get_all_transactions()
+                        if result=="":
+                            print("No transactions yet.")
+                        else:
+                            print(result)
+                        
+                    case "7":
+                        #View all transactions for account_nr
+                        print("Account number?")
+                        input_acc_nr=ui_instance.get_input();
+                        result=bank_instance.get_all_transactions_by_acc_nr(input_acc_nr)
+                        if result=="":
+                            print("No transactions for that account yet.")
+                        else:
+                            print(result)
+                    case "8":
                         #Quit
                         print("Finishing...")
                         bank_instance._save()
@@ -101,7 +118,7 @@ def work_with_customer(pnr,ui_instance,bank_instance):
                         #Work with account
                         print("Account no to work with?")
                         input_pnr=ui_instance.get_input();
-                        work_with_account(customer,ui_instance,input_pnr)
+                        work_with_account(customer,ui_instance,input_pnr,bank_instance)
                     case "3":
                         #Create new account
                         result=customer.add_account()
@@ -125,7 +142,7 @@ def work_with_customer(pnr,ui_instance,bank_instance):
                         running=False
 
 
-def work_with_account(customer,ui_instance,account_nr):
+def work_with_account(customer,ui_instance,account_nr,bank_instance):
       account=customer.get_account(account_nr)
       running=True
       while(running):
@@ -145,6 +162,7 @@ def work_with_account(customer,ui_instance,account_nr):
                         result=customer.deposit(account_nr,input_sum)
                         if result==True:
                             print("Money successfully deposited")
+                            bank_instance.create_transaction(customer.id,account.account_number,float(input_sum))
                         else:
                             print("Error: money could not be deposited")
                     case "3":
@@ -154,6 +172,7 @@ def work_with_account(customer,ui_instance,account_nr):
                         result=customer.withdraw(account_nr,input_sum)
                         if result==True:
                             print("Money successfully withdrawn")
+                            bank_instance.create_transaction(customer.id,account.account_number,-(float)(input_sum))
                         else:
                             print("Error: money could not be withdrawn")
                     case "4":

@@ -18,7 +18,9 @@ class UI:
         print("3:Create new customer")
         print("4:Edit customer")
         print("5:Delete customer")
-        print("6:Exit")
+        print("6:View all transactions")
+        print("7:View all transactions for account")
+        print("8:Exit")
 
     def show_customer_menu(self):
         print("\n***********")

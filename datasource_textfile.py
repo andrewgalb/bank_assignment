@@ -5,6 +5,9 @@ import csv
 from io import StringIO
 from customer import Customer
 from account import Account
+import json
+import jsonpickle
+
 
 
 """DataSource klassen kräver konkreta implementationer. Ett krav är att
@@ -33,7 +36,22 @@ class DataSource_TextFile(DataSource):
                 customer.accounts=accounts
                 customers[customer.pnr]=customer
 
-        return customers    
+        return customers 
+
+    """Returnerar alla transaktioner i banken."""
+    def get_all_transactions(self):
+        try:
+            with open('transactions.json', 'a+') as f:
+                transactions = json.load(f) 
+        except:
+            transactions=[]
+        return transactions
+
+    """Spara alla transaktioner i banken."""
+    def serialize_all_transactions(self,bank):
+        with open('transactions.json', 'w') as f:
+            frozen = jsonpickle.encode(bank.transactions)
+            json.dumps(frozen)
 
     """Skriver alla kunder och sina detaljer till fil."""
     def serialize(self,bank):

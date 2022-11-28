@@ -18,4 +18,8 @@ class DataSource:
     def serialize(self,Bank):
         raise NotImplementedError
 
-        
+    def get_all_transactions(self):
+        raise NotImplementedErrors
+
+    def serialize_all_transactions(self,bank):
+        raise NotImplementedError
